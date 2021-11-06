@@ -1,0 +1,47 @@
+function matrix(n){
+  // debugger
+  let results= []
+  for(let i=0; i<n ; i++){
+    results.push([]);
+  }
+
+  let counter = 0;
+  let startRow = 0;
+  let startColumn = 0;
+  let endRow = n-1;
+  let endColumn = n-1;
+  while(startRow <= endRow && startColumn <= endColumn){
+    //top
+    for(let i=startColumn; i <= endColumn ; i++){
+      results[startRow][i] = counter;
+      counter++;
+    }
+    //right
+    startRow++;
+    for(let i=startRow; i <= endRow; i++){
+      results[i][endColumn] = counter;
+      counter++;
+    }
+    //bottom
+    endColumn--;
+    for(let i=endColumn; i >= startColumn; i--){
+      results[endRow][i] = counter;
+      counter++;
+    }
+
+    //left
+    endRow--;
+    for(let i=endRow; i>= startRow; i--){
+      results[i][startColumn]=counter;
+      counter++;
+    }
+
+    startColumn++;
+
+  }
+
+  return results;
+}
+
+
+// console.log(matrix(6))

@@ -1,0 +1,53 @@
+class Queue{
+  constructor(){
+    this.data = [];
+  }
+
+  add(item){
+    this.data.unshift(item);
+  }
+
+  remove(){
+    return this.data.pop();
+  }
+
+  peek(){
+    return this.data[this.data.length-1];
+  }
+}
+
+function weave(sourceA,sourceB){
+  // debugger;
+  const q = new Queue();
+  while(sourceA.peek() || sourceB.peek()){
+    if(sourceA.peek()){
+      q.add(sourceA.remove())
+    }
+
+    if(sourceB.peek()){
+      q.add(sourceB.remove())
+    }
+  }
+  return q
+}
+
+let q = new Queue()
+q.add(1)
+q.add(2)
+q.add(3)
+// console.log(q.data)
+// q.remove()
+// console.log(q.data)
+// console.log(q.peek())
+
+let sourceA = new Queue()
+sourceA.add(1)
+sourceA.add(2)
+sourceA.add(3)
+
+let sourceB = new Queue()
+sourceB.add(11)
+sourceB.add(22)
+sourceB.add(33)
+
+// console.log(weave(sourceA, sourceB))

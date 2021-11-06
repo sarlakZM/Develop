@@ -1,0 +1,20 @@
+function maxChar(str){
+  const obj = {};
+  let maxChar = ''
+  let numMax = 0
+  for(let char of str){
+    if (obj[char]){
+      obj[char]++;
+    }else{
+      obj[char] = 1
+    }
+  }
+  for(let key in obj){
+    if(obj[key] > numMax){
+      maxChar = key;
+      numMax = obj[key];
+    }
+  }
+  return [maxChar,numMax]
+}
+console.log(maxChar("salam zzzzzzzzzzzzz"))

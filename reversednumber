@@ -1,0 +1,7 @@
+
+function reversednumber(num){
+    const rev = num.toString().split('').reverse().join('');
+    return parseInt(rev) * Math.sign(num)
+}
+
+console.log(reversednumber(-56))

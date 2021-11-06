@@ -1,0 +1,37 @@
+function anagram(strA,strB){
+  strA = buildCharMap(strA);
+  strB = buildCharMap(strB);
+  if(strA.length !== strB.length){
+    return false;
+  }
+  for(let key in strA){
+    if(strA[key] !== strB[key]){
+      return false;
+    }
+  }
+  return true
+}
+
+function buildCharMap(str){
+  let charMap={}
+  for(let char of str.replace(/[^\w]/,'').toLowerCase()){
+    charMap[char] = charMap[char] + 1  || 1
+  }
+
+  return charMap
+}
+
+function anagram_2(strA,strB){
+  strA = strA.replace(/[^\w]/, '').toLowerCase().split('').sort().join('');
+  strB = strB.replace(/[^\w]/, '').toLowerCase().split('').sort().join('');
+
+  if(strA !== strB){
+    return false
+  }
+  return true
+}
+
+
+// console.log(anagram_2("zahra sarlak", "Sarlak Zahra"));
+// console.log(anagram("zahra sarlak", "Sarlak Zahra"));
+// console.log(anagram("zahra sarlak1", "Sarlak Zahra"));

@@ -1,0 +1,63 @@
+function steps(n){
+  for(let row=0 ; row < n; row++){
+    let star = ''
+     for(let column=0 ; column < n; column++){
+       star += column <= row ? "#" : "-"
+     }
+    console.log(star)
+  }
+}
+
+function recursive_steps(n, row=0, star=''){
+  if(n === row){
+    return;
+  }
+
+  if( n === star.length){
+    console.log(star);
+    return recursive_steps(n, row+1)
+  }
+
+  const add = star.length <= row ? "#" : " " 
+  recursive_steps(n, row, star+add)
+ 
+}
+
+function pyramid(n){
+  let midpoint = Math.floor((n*2-1)/2)
+  for(let row=0 ; row < n; row++){
+    let level = ''
+     for(let column=0 ; column < 2*n-1; column++){
+       level += (midpoint-row <= column && midpoint+row >= column ) ? "#" : "-"
+     }
+    console.log(level)
+  }
+}
+
+function recursive_pymraid(n, row=0, level=""){
+   let midpoint = Math.floor((2 * n - 1) / 2)
+   if(n === row){
+     return;
+   }
+
+   if(level.length === 2 * n - 1){
+     console.log(level)
+     return recursive_pymraid(n, row+1)
+   }
+   
+   let add;
+   if(midpoint-row <= level.length && midpoint+row >= level.length ) {
+     add = "#";
+   }else{
+     add = " ";
+   }
+  
+  //  const add = (midpoint-row <= level.length && midpoint+row >= level.length ) ? "#" : " ";
+   recursive_pymraid(n, row, level+add)
+}
+
+
+// steps(3)
+// pyramid(3)
+// recursive_pymraid(3)
+// recursive_steps(3)

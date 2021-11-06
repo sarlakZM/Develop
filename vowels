@@ -1,0 +1,18 @@
+function vowels(str){
+  const vowelsL=['a','e','i','o','u']
+  let count = 0;
+  for(let char of str){
+    if(vowelsL.includes(char)){
+      count++
+    }
+  }
+  return count
+}
+
+function vowels_reg(str){
+  let matches= str.match(/[aeiou]/gi)
+  return matches ? matches.length : 0
+}
+
+// console.log(vowels("zahraai"));
+// console.log(vowels_reg("zahraai"));

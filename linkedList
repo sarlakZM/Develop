@@ -152,7 +152,7 @@ class LinkedList {
     }
   }
 
-  //generator iterator
+  //generator iterator  https://babeljs.io/docs/en/learn
   *[Symbol.iterator] () {
     let node = this.head;
     while(node){

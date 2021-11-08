@@ -1,0 +1,25 @@
+const circularlinklist = new LinkedList();
+const a = new Node(1), b = new Node(2), c = new Node(3), d = new Node(4);
+circularlinklist.head = a;
+a.next = b;
+b.next = c;
+c.next = d;
+d.next = b;
+
+function iscircular(list){
+  let slow = list.getFirst();
+  let fast = list.getFirst();
+  if (!fast){
+    return;
+  }
+  while(fast.next && fast.next.next){
+    slow = slow.next;
+    fast = fast.next.next;
+    if(slow === fast){
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(iscircular(circularlinklist))

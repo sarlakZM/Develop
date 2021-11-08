@@ -1,0 +1,61 @@
+class Node {
+  constructor(data){
+    this.data = data;
+    this.children = [];
+  }
+
+  add (data) {
+    this.children.push(new Node(data))
+  }
+
+  remove (data) {
+    this.children.filter((node) => {
+      return node.data !== data;
+    })
+  }
+}
+
+class Tree {
+  constructor(){
+    this.root = null;
+  }
+
+  traveralBF(fn){
+    const arr = [this.root];
+    while(arr.length){
+      const node = arr.shift();
+      arr.push(...node.children)
+      fn(node)
+    }
+  }
+
+   traveralDF(fn){
+    const arr = [this.root];
+    while(arr.length){
+      const node = arr.shift();
+      arr.unshift(...node.children)
+      fn(node)
+    }
+  }
+}
+
+//////////////////////////
+const tree = new Tree()
+const root = new Node(1);
+tree.root = root;
+tree.root.add(2)
+tree.root.add(3)
+tree.root.children[0].add(4)
+tree.root.children[0].add(5)
+tree.root.children[1].add(6)
+tree.root.children[1].add(7)
+
+console.log(tree)
+console.log("=====traveralBF=============")
+tree.traveralBF((node) => {
+  console.log(node.data);
+})
+console.log("=====traveralDF=============")
+tree.traveralDF((node) => {
+  console.log(node.data);
+})

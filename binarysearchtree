@@ -31,6 +31,25 @@ class Node {
 
     return null;
   }
+
+  validate(node, min = null, max = null) {
+    console.log(node.data,min,max)
+    if(max != null && node.data > max){
+      return false;
+    }
+    if(min != null && node.data < min){
+      return false;
+    }
+
+    if(node.left && !this.validate(node.left, min, node.data)){
+      return false;
+    }
+    if(node.right &&!this.validate(node.right, node.data, max)){
+      return false;
+    }
+
+    return true;
+  }
 }
 
 const btree = new Node(2);
@@ -39,4 +58,4 @@ btree.insert(3)
 btree.insert(12)
 console.log(btree)
 console.log(btree.contains(3))
-console.log(btree.contains(35))
+console.log(btree.validate(btree))

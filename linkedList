@@ -6,8 +6,15 @@ class Node {
 }
 
 class LinkedList {
-  constructor(){
-    this.head = null
+  constructor(values=[]){
+    this.head = null;
+
+    for(let value of values){
+      console.log(value)
+      this.insertLast(value)
+      console.log(this.head)
+    }
+
   }
 
   insertFirst(data){
@@ -25,7 +32,7 @@ class LinkedList {
     //   this.head = new Node(data)
     // }
 
-    this.insertAt(data, this.size() - 1);
+    this.insertAt(data, this.size());
   }
 
   size(){
@@ -152,7 +159,7 @@ class LinkedList {
     }
   }
 
-  //generator iterator  https://babeljs.io/docs/en/learn
+  //generator iterator
   *[Symbol.iterator] () {
     let node = this.head;
     while(node){
@@ -162,55 +169,55 @@ class LinkedList {
   }
 }
 
-const node = new Node("sarlak");
-const list = new LinkedList();
-list.insertFirst("zahra")
-console.log(list)
-list.head = node;
-list.insertFirst("zahra")
-console.log(list)
+// const node = new Node("sarlak");
+// const list = new LinkedList();
+// list.insertFirst("zahra")
+// console.log(list)
+// list.head = node;
+// list.insertFirst("zahra")
+// console.log(list)
 
-console.log(list.size())
-console.log(list.getFirst())
-console.log(list.getLast())
-list.clear();
-console.log(list.size());
+// console.log(list.size())
+// console.log(list.getFirst())
+// console.log(list.getLast())
+// list.clear();
+// console.log(list.size());
 
-list.removeFirst();
-list.removeLast();
+// list.removeFirst();
+// list.removeLast();
 
-console.log("insert")
-list.insertFirst(1);
-list.removeFirst();
+// console.log("insert")
+// list.insertFirst(1);
+// list.removeFirst();
 
-list.insertFirst(1);
-list.removeLast();
+// list.insertFirst(1);
+// list.removeLast();
 
-list.insertFirst(4);
-list.insertFirst(3)
-list.insertFirst(2)
-list.insertFirst(1)
-list.removeFirst();
-list.removeLast();
+// list.insertFirst(4);
+// list.insertFirst(3)
+// list.insertFirst(2)
+// list.insertFirst(1)
+// list.removeFirst();
+// list.removeLast();
 
-list.insertFirst(1)
-list.insertLast(4)
-console.log(list)
+// list.insertFirst(1)
+// list.insertLast(4)
+// console.log(list)
 
-console.log(list.getAt(3))
-list.removeAt(0)
-console.log(list)
+// console.log(list.getAt(3))
+// list.removeAt(0)
+// console.log(list)
 
-list.insertAt("12", 2)
-console.log(list)
+// list.insertAt("12", 2)
+// console.log(list)
 
 
-console.log("=====forEach====", list.size())
-list.forEach((node, index) => {
-  console.log(node.data, index)
-})
+// console.log("=====forEach====", list.size())
+// list.forEach((node, index) => {
+//   console.log(node.data, index)
+// })
 
-console.log("=====let of======", list.size())
-for (let node of list){
-  console.log(node.data)
-}
+// console.log("=====let of======", list.size())
+// for (let node of list){
+//   console.log(node.data)
+// }

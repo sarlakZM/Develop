@@ -10,9 +10,7 @@ class LinkedList {
     this.head = null;
 
     for(let value of values){
-      console.log(value)
       this.insertLast(value)
-      console.log(this.head)
     }
 
   }

@@ -1,0 +1,21 @@
+const newlinklist = new LinkedList([1,2,3,4,5,6]);
+
+function fromlast(list, n){
+  let slow = list.getFirst();
+  let fast = list.getFirst();
+
+  while (n > 0) {
+    if (!fast.next){
+      return;
+    }
+    fast = fast.next;
+    n--;
+  }
+  while(fast.next){
+    slow = slow.next;
+    fast = fast.next;
+  }
+  return slow;
+}
+
+console.log(fromlast(newlinklist, 2))

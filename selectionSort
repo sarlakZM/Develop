@@ -1,0 +1,19 @@
+function selectionSort(arr) {
+  for(let i = 0; i< arr.length ; i++){
+    let indexmin= i;
+    for(let j = i+1 ; j < arr.length ; j ++) {
+      if ( arr[j] < arr[indexmin]){
+        indexmin = j
+      }
+    }
+    if(indexmin !== i){
+      let lesser = arr[i];
+      arr[i] = arr[indexmin]
+      arr[indexmin] = lesser
+    }
+  
+  }
+  return arr;
+}
+
+console.log("====selectionSort====",selectionSort([2,6,-8,1,9,0,4]))

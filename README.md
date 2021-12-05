@@ -24,12 +24,18 @@ Sample Output
 num = int(input())
 
 def fibonacci(n):
+
 	#complete the recursive function 
+	
 	if n <= 1:
+	
 		return n
+		
 	return fibonacci(n-1) + fibonacci(n-2)
 	
 	
 if num > 0 :
+
 	for n in range(num):
+	
 		print(fibonacci(n))
